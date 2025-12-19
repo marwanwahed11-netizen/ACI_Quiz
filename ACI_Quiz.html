@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Crash Investigation Quiz</title>
+</head>
+<body>
+    <h1>Air Crash Investigation Quiz</h1>
+    <p>Test your knowledge on famous aviation disasters!</p>
+    
+    <form id="quizForm">
+        <div class="question">
+            <p>1. What caused the Tenerife airport disaster in 1977?</p>
+            <input type="radio" name="q1" value="a"> Pilot error<br>
+            <input type="radio" name="q1" value="b"> Mechanical failure<br>
+            <input type="radio" name="q1" value="c"> Weather conditions<br>
+        </div>
+        
+        <div class="question">
+            <p>2. Which plane was involved in the 1985 Japan Airlines crash?</p>
+            <input type="radio" name="q2" value="a"> Boeing 747<br>
+            <input type="radio" name="q2" value="b"> Airbus A320<br>
+            <input type="radio" name="q2" value="c"> Concorde<br>
+        </div>
+        
+        <div class="question">
+            <p>3. What was the primary cause of the 2009 Hudson River crash?</p>
+            <input type="radio" name="q3" value="a"> Bird strike<br>
+            <input type="radio" name="q3" value="b"> Engine failure<br>
+            <input type="radio" name="q3" value="c"> Pilot error<br>
+        </div>
+        
+        <button type="button" onclick="checkAnswers()">Submit Quiz</button>
+    </form>
+    
+    <div id="results"></div>
+    
+    <script>
+    function checkAnswers() {
+        let score = 0;
+        const answers = { q1: 'a', q2: 'a', q3: 'a' }; // Correct: Pilot error, Boeing 747, Bird strike
+        
+        for (let q in answers) {
+            const selected = document.querySelector(`input[name="${q}"]:checked`);
+            if (selected && selected.value === answers[q]) {
+                score++;
+            }
+        }
+        
+        document.getElementById('results').innerHTML = `You scored ${score} out of ${Object.keys(answers).length}!`;
+    }
+    </script>
+</body>
+</html>
